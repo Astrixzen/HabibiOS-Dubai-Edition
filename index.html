@@ -1,12 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>HabibiOS - Dubai Edition</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <title>DubaiOS</title>
-    <p>Welcome to DubaiOS. Here you can complete your tasks such as writing notes and </p>
+
+  <div class="background"></div>
+
+  <div class="desktop">
+
+    <div class="desktop-icons">
+      <div class="icon" onclick="openApp('terminalWindow')">
+        <img class="icon-img" src="desktop.png" alt="Desktop">
+        <span>Desktop</span>
+      </div>
+      <div class="icon" onclick="openApp('explorerWindow')">
+        <img class="icon-img" src="file_explorer.png" alt="File Explorer">
+        <span>File Explorer</span>
+      </div>
+      <div class="icon" onclick="openApp('internetWindow')">
+        <img class="icon-img" src="internet.png" alt="Internet">
+        <span>Internet</span>
+      </div>
+      <div class="icon" onclick="openApp('calcWindow')">
+        <img class="icon-img" src="calc.png" alt="Calculator">
+        <span>Calculator</span>
+      </div>
+      <div class="icon" onclick="openApp('musicWindow')">
+        <img class="icon-img" src="music.png" alt="Music">
+        <span>Music</span>
+      </div>
+      <div class="icon" onclick="openApp('settingsWindow')">
+        <img class="icon-img" src="settings.png" alt="Settings">
+        <span>Settings</span>
+      </div>
+      <div class="icon" onclick="openApp('notepadWindow')">
+        <img class="icon-img" src="note.png" alt="Notepad">
+        <span>Notepad</span>
+      </div>
+      <div class="icon" onclick="openApp('paintWindow')">
+        <img class="icon-img" src="paint.png" alt="Paint">
+        <span>Paint</span>
+      </div>
+      <div class="icon" onclick="openApp('minesweeperWindow')">
+        <img class="icon-img" src="mine.png" alt="Minesweeper">
+        <span>Minesweeper</span>
+      </div>
+      <div class="icon" onclick="openApp('crateWindow')">
+        <img class="icon-img" src="crate.png" alt="Csgo crate simulator">
+        <span>Csgo crate simulator</span>
+      </div>
+    </div>
+
+    <div class="app-window" id="xpWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Welcome to HabibiOS</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('xpWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content welcome-content">
+        <h1>Welcome to HabibiOS</h1>
+        <p class="xp-subtitle">Dubai Edition</p>
+        <p>Get ready to explore your new desktop experience.</p>
+        <button class="xp-ok-btn" onclick="closeWindow('xpWindow')">Get Started</button>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="terminalWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Terminal</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('terminalWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content terminal-content">
+        <div class="terminal-output" id="terminalOutput">HabibiOS Terminal [Dubai Edition]
+Type "help" to see available commands.
+</div>
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">habibi@dubai:~$</span>
+          <input type="text" id="terminalInput" class="terminal-input" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="explorerWindow">
+      <div class="window-titlebar">
+        <span class="window-title">File Explorer</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('explorerWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content explorer-content">
+        <div class="explorer-tabs">
+          <button class="explorer-tab active" data-tab="desktop">Desktop</button>
+          <button class="explorer-tab" data-tab="downloads">Downloads</button>
+          <button class="explorer-tab" data-tab="music">Music</button>
+          <button class="explorer-tab" data-tab="documents">Documents</button>
+          <button class="explorer-tab" data-tab="pictures">Pictures</button>
+        </div>
+        <div class="explorer-files" id="explorerFiles"></div>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="internetWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Internet</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('internetWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content internet-content">
+        <a class="site-card" href="https://www.wikipedia.org/" target="_blank" rel="noopener">
+          <div class="site-icon">W</div>
+          <span>Wikipedia</span>
+        </a>
+        <a class="site-card" href="https://www.trivago.in/" target="_blank" rel="noopener">
+          <div class="site-icon">T</div>
+          <span>Trivago</span>
+        </a>
+        <a class="site-card" href="https://github.com/Astrixzen/DubaiOS" target="_blank" rel="noopener">
+          <div class="site-icon">G</div>
+          <span>My GitHub</span>
+        </a>
+        <a class="site-card" href="https://www.khaleejtimes.com/" target="_blank" rel="noopener">
+          <div class="site-icon">K</div>
+          <span>Khaleej Times</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="calcWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Calculator</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('calcWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content calc-content">
+        <input type="text" id="calcDisplay" class="calc-display" value="0" readonly>
+        <div class="calc-grid">
+          <button class="calc-btn calc-op" data-val="C">C</button>
+          <button class="calc-btn calc-op" data-val="(">(</button>
+          <button class="calc-btn calc-op" data-val=")">)</button>
+          <button class="calc-btn calc-op" data-val="/">÷</button>
+
+          <button class="calc-btn" data-val="7">7</button>
+          <button class="calc-btn" data-val="8">8</button>
+          <button class="calc-btn" data-val="9">9</button>
+          <button class="calc-btn calc-op" data-val="*">×</button>
+
+          <button class="calc-btn" data-val="4">4</button>
+          <button class="calc-btn" data-val="5">5</button>
+          <button class="calc-btn" data-val="6">6</button>
+          <button class="calc-btn calc-op" data-val="-">−</button>
+
+          <button class="calc-btn" data-val="1">1</button>
+          <button class="calc-btn" data-val="2">2</button>
+          <button class="calc-btn" data-val="3">3</button>
+          <button class="calc-btn calc-op" data-val="+">+</button>
+
+          <button class="calc-btn" data-val="0">0</button>
+          <button class="calc-btn" data-val=".">.</button>
+          <button class="calc-btn calc-eq" data-val="=">=</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="musicWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Music</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('musicWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content music-content">
+        <label class="upload-btn">
+          + Upload MP3
+          <input type="file" id="musicUpload" accept=".mp3,audio/mpeg" multiple hidden>
+        </label>
+
+        <div class="music-list" id="musicList">
+          <p class="music-empty">No songs uploaded yet.</p>
+        </div>
+
+        <div class="music-player-bar">
+          <div class="now-playing" id="nowPlaying">Nothing playing</div>
+          <audio id="audioPlayer" controls></audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="settingsWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Settings</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('settingsWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content settings-content">
+        <p class="settings-label">Desktop Background</p>
+
+        <div class="bg-preview-wrap">
+          <div class="bg-preview" id="bgPreview"></div>
+        </div>
+
+        <label class="upload-btn">
+          Change Background
+          <input type="file" id="bgUpload" accept="image/*" hidden>
+        </label>
+      </div>
+    </div>
+
+    <div class="app-window hidden" id="notepadWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Notepad</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('notepadWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content notepad-content">
+        <textarea id="notepadArea" class="notepad-area" placeholder="Start typing..."></textarea>
+        <div class="notepad-footer">
+          <span id="notepadStatus">Saved</span>
+          <button class="upload-btn" id="notepadClear">Clear</button>
+        </div>
+      </div>
+    </div>
+    <div class="app-window hidden" id="paintWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Paint</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('paintWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content paint-content">
+        <div class="paint-toolbar">
+          <label>Color <input type="color" id="paintColor" value="#000000"></label>
+          <label>Size <input type="range" id="paintSize" min="1" max="30" value="4"></label>
+          <button class="upload-btn" id="paintClear">Clear</button>
+        </div>
+        <canvas id="paintCanvas" width="400" height="280"></canvas>
+      </div>
+    </div>
+    <div class="app-window hidden" id="minesweeperWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Minesweeper</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('minesweeperWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content mine-content">
+        <div class="mine-header">
+          <div class="mine-counter" id="mineCounter">🚩 10</div>
+          <button class="mine-face" id="mineFace">🙂</button>
+          <div class="mine-timer" id="mineTimer">⏱ 0</div>
+        </div>
+        <div class="mine-grid" id="mineGrid"></div>
+        <div class="mine-stats" id="mineStats">Wins: 0 | Losses: 0 | Best Time: --</div>
+      </div>
+    </div>
+    <div class="app-window crate-window hidden" id="crateWindow">
+      <div class="window-titlebar">
+        <span class="window-title">Csgo Crate Simulator</span>
+        <div class="window-controls">
+          <button class="win-btn win-close" onclick="closeWindow('crateWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content crate-window-content">
+        <iframe src="crate.html" class="crate-iframe" title="Crate Simulator"></iframe>
+      </div>
+    </div>
+
+  </div>
+  <div class="taskbar">
+    <div class="taskbar-brand">HabibiOS</div>
+
+    <div class="taskbar-apps">
+      <button class="taskbar-icon" onclick="openApp('terminalWindow')"><img src="desktop.png" alt="Desktop">Desktop</button>
+      <button class="taskbar-icon" onclick="openApp('explorerWindow')"><img src="file_explorer.png" alt="File Explorer">Files</button>
+      <button class="taskbar-icon" onclick="openApp('internetWindow')"><img src="internet.png" alt="Internet">Internet</button>
+      <button class="taskbar-icon" onclick="openApp('calcWindow')"><img src="calc.png" alt="Calculator">Calc</button>
+      <button class="taskbar-icon" onclick="openApp('musicWindow')"><img src="music.png" alt="Music">Music</button>
+      <button class="taskbar-icon" onclick="openApp('settingsWindow')"><img src="settings.png" alt="Settings">Settings</button>
+      <button class="taskbar-icon" onclick="openApp('crateWindow')"><img src="crate.png" alt="Crate">Crate</button>
+    </div>
+
+    <div class="taskbar-right">
+      <div class="taskbar-divider"></div>
+      <div class="taskbar-clock">
+        <div class="clock-time" id="clockTime">00:00:00</div>
+        <div class="clock-date" id="clockDate">Day, Month 00, 0000</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

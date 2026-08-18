@@ -1,0 +1,228 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #1b1f2b 0%, #05070d 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.crate-app {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.crate-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.crate-app-title {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.balance-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* ===== Reel ===== */
+
+.reel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.pointer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  z-index: 5;
+}
+
+.reel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  transition: transform 5.5s cubic-bezier(0.12, 0.83, 0.14, 1);
+}
+
+.reel-item {
+  flex: 0 0 auto;
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.reel-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.reel-item span {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Rarity colors ===== */
+
+.rarity-common {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4) inset;
+}
+.rarity-common span { color: #ffffff; }
+
+.rarity-uncommon {
+  border-color: #2ecc40;
+  box-shadow: 0 0 10px rgba(46, 204, 64, 0.4) inset;
+}
+.rarity-uncommon span { color: #2ecc40; }
+
+.rarity-rare {
+  border-color: #2196f3;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.4) inset;
+}
+.rarity-rare span { color: #2196f3; }
+
+.rarity-epic {
+  border-color: #9c27b0;
+  box-shadow: 0 0 10px rgba(156, 39, 176, 0.4) inset;
+}
+.rarity-epic span { color: #9c27b0; }
+
+.rarity-legendary {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5) inset;
+}
+.rarity-legendary span { color: #ffd700; }
+
+.rarity-divine {
+  border-color: #f44336;
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.5) inset;
+}
+.rarity-divine span { color: #f44336; }
+
+.rarity-ultra {
+  border-color: #000000;
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.5) inset;
+}
+.rarity-ultra span {
+  color: #ffffff;
+  text-shadow: 0 0 6px #ffffff;
+}
+
+/* Winning item glow pulse */
+.reel-item.winner {
+  animation: winnerPulse 1s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes winnerPulse {
+  from { filter: brightness(1); transform: scale(1); }
+  to { filter: brightness(1.5); transform: scale(1.06); }
+}
+
+/* ===== Controls ===== */
+
+.controls {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.open-btn, .reset-btn {
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.open-btn {
+  background: linear-gradient(to bottom, #ffd700, #d4a600);
+  color: #222;
+}
+
+.open-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.open-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.reset-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Result panel ===== */
+
+.result-panel {
+  margin-top: 22px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 26px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.back-link:hover {
+  color: white;
+}

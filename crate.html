@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HabibiOS - Crate Opening</title>
+<link rel="stylesheet" href="crate.css">
+</head>
+<body>
+
+  <div class="crate-app">
+
+    <div class="crate-header">
+      <div class="crate-app-title">HabibiOS Crate Opening</div>
+      <div class="balance-box">
+        Balance: <span id="balanceAmount">$0</span>
+      </div>
+    </div>
+
+    <div class="reel-wrapper">
+      <div class="pointer"></div>
+      <div class="reel" id="reel"></div>
+    </div>
+
+    <div class="controls">
+      <button id="openCrateBtn" class="open-btn">Open Crate ($100)</button>
+      <button id="resetBalanceBtn" class="reset-btn">Reset Balance</button>
+    </div>
+
+    <div class="result-panel" id="resultPanel">
+      <span id="resultText">Open a crate to see what you get!</span>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Desktop</a>
+
+  </div>
+
+  <script src="crate.js"></script>
+</body>
+</html>
